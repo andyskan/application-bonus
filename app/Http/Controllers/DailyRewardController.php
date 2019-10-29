@@ -29,7 +29,7 @@ class DailyRewardController extends Controller
     public function getRewards()
     {
         $data = DailyRewards::all();
-        return response($data);
+        return response()->json($data);
     }
     /**
      * Create a new reward entry

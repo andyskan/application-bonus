@@ -22,7 +22,6 @@ $router->post('user/add', ['uses' => 'UserController@addUser']);
 $router->put('user/update/{id}', ['uses' => 'UserController@updateUser']);
 
 $router->get('daily-rewards/all', ['uses' => 'DailyRewardController@getRewards']);
-// $router->get('daily-rewards/all',  ['uses' => 'DailyRewardController@getRewards']);
 $router->post('daily-rewards/add', ['uses' => 'DailyRewardController@addDailyRewards']);
 $router->put('daily-rewards/update/{id}', ['uses' => 'DailyRewardController@updateDailyRewards']);
 

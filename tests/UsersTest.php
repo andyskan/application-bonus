@@ -91,7 +91,7 @@ class UsersTest extends TestCase
             'low_range' => 20000,
             'top_range' => 30000,
         ];
-        $this->put('user/update/7', $parameters, []);
+        $this->put('user/update/4', $parameters, []);
         $this->seeStatusCode(200)
             ->seeJson(
                 [
