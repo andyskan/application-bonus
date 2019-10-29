@@ -31,7 +31,18 @@ class UserController extends Controller
         $data = BonusUser::all();
         return response($data);
     }
-    
+    /**
+     * Get user by id
+     *
+     * @param  mixed $id
+     *
+     * @return object
+     */
+    public function getUser($id)
+    {
+        $user = BonusUser::find($id);
+        return response()->json($user);
+    }
     /**
      * Creates new user
      *

@@ -17,6 +17,8 @@ $router->get(
     }
 );
 $router->get('user/all',  ['uses' => 'UserController@getAllUsers']);
+$router->get('user/{id}',  ['uses' => 'UserController@getUser']);
+
 $router->post('user/add',  ['uses' => 'UserController@addUser']);
 $router->put('user/update/{id}',  ['uses' => 'UserController@updateUser']);
 
