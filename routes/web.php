@@ -11,11 +11,14 @@
 |
  */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
-$router->get('user/all',  ['uses' => 'UserController@getUsers']);
+$router->get(
+    '/', function () use ($router) {
+        return $router->app->version();
+    }
+);
+$router->get('user/all',  ['uses' => 'UserController@getAllUsers']);
+$router->post('user/add',  ['uses' => 'UserController@addUser']);
 $router->get('daily-rewards/all',  ['uses' => 'DailyRewardController@getRewards']);
-$router->post('transaction/new',  ['uses' => 'TransactionController@newTransaction']);
+$router->post('transaction/add',  ['uses' => 'TransactionController@newTransaction']);
 
 
