@@ -28,5 +28,28 @@ class UsersTest extends TestCase
             ]
         );
     }
+    /**
+     * Test that test should return a user
+     *
+     * @return void
+     */
+    public function testShouldReturnUser()
+    {
+        $this->get("user/1", []);
+        $this->seeStatusCode(200);
+        $this->seeJsonStructure(
+            [
+                    'id',
+                    'name',
+                    'low_range',
+                    'top_range',
+                    'created_at',
+                    'updated_at',
+
+            ]
+        );
+
+
+    }
 
 }
