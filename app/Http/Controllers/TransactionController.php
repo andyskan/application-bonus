@@ -37,7 +37,13 @@ class TransactionController extends Controller
 
             $dailyRewards = DailyRewards::where('id', $request->input('daily_reward_id'))
                 ->lockForUpdate()->first();
-            $dailyRewards->current_value -= $rewardAmount;
+            if ($dailyRewards->current_value - $rewardAmount <= 0) {
+                $rewardAmount = $dailyRewards->current_value;
+                $dailyRewards->current_value = 0;
+
+            } else {
+                $dailyRewards->current_value -= $rewardAmount;
+            }
             $dailyRewards->save();
 
             $transaction = new Transaction();
