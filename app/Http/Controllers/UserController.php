@@ -26,7 +26,7 @@ class UserController extends Controller
      *
      * @return object
      */
-    public function getUsers()
+    public function getAllUsers()
     {
         $data = BonusUser::all();
         return response($data);
@@ -38,7 +38,7 @@ class UserController extends Controller
      *
      * @return object
      */
-    public function newUser(Request $request)
+    public function addUser(Request $request)
     {
         $user = BonusUser::create($request->all());
 
