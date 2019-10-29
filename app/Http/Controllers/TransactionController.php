@@ -6,7 +6,11 @@ use App\BonusUser;
 use App\DailyRewards;
 use App\Transaction;
 use Illuminate\Http\Request;
-
+/**
+ * Transaction controller is a class that handles transaction
+ * @author andyskan
+ * @package ovo-bonus
+ */
 class TransactionController extends Controller
 {
     /**
@@ -26,7 +30,7 @@ class TransactionController extends Controller
     public function getAllTransaction()
     {
         $data = Transaction::all();
-        return response($data);
+        return response($data, 200);
     }
     /**
      * Create a new transaction
@@ -56,7 +60,7 @@ class TransactionController extends Controller
             $transaction->reward_amount = $rewardAmount;
             $transaction->save();
 
-            return response($transaction);
+            return response("You received ". $rewardAmount, 200);
         }
     }
     /**
