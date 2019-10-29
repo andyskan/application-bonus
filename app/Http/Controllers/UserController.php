@@ -31,6 +31,7 @@ class UserController extends Controller
         $data = BonusUser::all();
         return response($data);
     }
+    
     /**
      * Creates new user
      *
@@ -43,6 +44,25 @@ class UserController extends Controller
         $user = BonusUser::create($request->all());
 
         return response()->json($user);
+    }
+    /**
+     * Function to edit user
+     *
+     * @param  mixed $request
+     *
+     * @return void
+     */
+    public function updateUser(Request $request,$id)
+    {
+        $user = BonusUser::find($id);
+        // return response()->json($request);
+        $user->name = $request->input('name');
+        $user->low_range = $request->input('low_range');
+        $user->top_range = $request->input('top_range');
+        $user->save();
+
+        return response("User edit succesfull!", 200);
+
     }
 
     //

@@ -18,6 +18,8 @@ $router->get(
 );
 $router->get('user/all',  ['uses' => 'UserController@getAllUsers']);
 $router->post('user/add',  ['uses' => 'UserController@addUser']);
+$router->put('user/update/{id}',  ['uses' => 'UserController@updateUser']);
+
 $router->get('daily-rewards/all',  ['uses' => 'DailyRewardController@getRewards']);
 $router->post('transaction/add',  ['uses' => 'TransactionController@newTransaction']);
 

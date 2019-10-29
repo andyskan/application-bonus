@@ -10,5 +10,5 @@ use Illuminate\Database\Eloquent\Model;
 class BonusUser extends Model
 {
     protected $table = "users";
-    protected $fillable= ['name','low_range','top_range'];
+    // protected $fillable= ['name','low_range','top_range'];
 }
