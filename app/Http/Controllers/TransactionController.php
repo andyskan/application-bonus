@@ -45,7 +45,11 @@ class TransactionController extends Controller
             ->where('daily_reward_id', $request->input('daily_reward_id'))->get();
 
         if (count($transactionList) > 0) {
-            return response("User has received daily rewards");
+            return response()->json(
+                [
+                    'message'=>"user has received a reward"
+                ]
+            );
         } else {
 
             $randomReward = $this->getRewardAmount($request->input('user_id'));
@@ -60,7 +64,7 @@ class TransactionController extends Controller
             $transaction->reward_amount = $rewardAmount;
             $transaction->save();
 
-            return response("You received ". $rewardAmount, 200);
+            return response()->json($transaction);
         }
     }
     /**
