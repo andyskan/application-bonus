@@ -10,8 +10,8 @@ app:
     - "9000:9000"
   environment:
     APP_ENV: local
-    APP_DEBUG: 'true'
-    APP_KEY: 
+    APP_DEBUG: "true"
+    APP_KEY: base64:7EkBwwHCpRLrs74lfwAXgGwJDjUjB6tPncFgGkzLQEA=
     APP_LOCALE: en
     APP_FALLBACK_LOCALE: en
     DB_CONNECTION: mysql
@@ -23,14 +23,15 @@ app:
 web:
   build: docker/nginx
   working_dir: /var/www
-  volumes_from: 
+  volumes_from:
     - app
   links:
     - app
   ports:
     - "8080:80"
 db:
-  image: mysql
+  image: mysql:5.7
+  command: --disable-partition-engine-check
   ports:
     - "3306:3306"
   environment:
