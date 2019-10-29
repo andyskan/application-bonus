@@ -11,6 +11,7 @@ class DailyRewardsTest extends TestCase
      */
     public function testShouldReturnAllDailyRewards()
     {
+        
         $this->get("daily-rewards/all", []);
         $this->seeStatusCode(200);
         $this->seeJsonStructure(
@@ -24,6 +25,26 @@ class DailyRewardsTest extends TestCase
                     'updated_at',
 
                 ],
+            ]
+        );
+    }
+    /**
+     * Assert creation test should return correct value 
+     *
+     * @return void
+     */
+    public function testShouldCreateDailyRewards()
+    {
+        $parameters = [
+            'starting_value' => 20000,
+
+        ];
+        $this->post('daily-rewards/add', $parameters, []);
+        $this->seeStatusCode(200);
+        $this->seeJson(
+            [
+                'starting_value' => 20000,
+                'current_value' => 20000
             ]
         );
     }
