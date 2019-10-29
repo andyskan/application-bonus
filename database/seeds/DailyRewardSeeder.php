@@ -14,7 +14,7 @@ class DailyRewardSeeder extends Seeder
         DB::table('daily_rewards')->insert(
             [
             'starting_value'=>200000,
-            'current'=>200000
+            'current_value'=>200000
             ]
         );
         // $this->call('UsersTableSeeder');

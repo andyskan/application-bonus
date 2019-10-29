@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BonusUser;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -20,6 +21,13 @@ class UserController extends Controller
         $data = BonusUser::all();
         return response($data);
     }
+    public function newUser(Request $request) 
+    {
+        $user = BonusUser::create($request->all());
+
+        return response()->json($user);
+    }
+    
 
     //
 }

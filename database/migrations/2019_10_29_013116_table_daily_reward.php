@@ -17,7 +17,7 @@ class TableDailyReward extends Migration
             'daily_rewards', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('starting_value');
-                $table->integer('current');
+                $table->integer('current_value');
                 $table->timestamps();
             }
         );
