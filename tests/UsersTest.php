@@ -48,8 +48,30 @@ class UsersTest extends TestCase
 
             ]
         );
-
-
     }
-
+    /**
+     * Test Should return the correct user
+     *
+     * @return void
+     */
+    public function testShouldCreateUser()
+    {
+        $parameters = [
+            'name' => 'Andy',
+            'low_range' => 20000,
+            'top_range' => 30000
+        ];
+        $this->post('user/add', $parameters, []);
+            $this->seeStatusCode(200);
+            $this->seeJsonStructure(
+                [
+                'id',
+                'name',
+                'low_range',
+                'top_range',
+                'created_at',
+                'updated_at',
+                ]
+            );
+    }
 }
