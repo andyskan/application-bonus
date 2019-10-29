@@ -16,16 +16,14 @@ $router->get(
         return $router->app->version();
     }
 );
-$router->get('user/all',  ['uses' => 'UserController@getAllUsers']);
-$router->get('user/{id}',  ['uses' => 'UserController@getUser']);
-$router->post('user/add',  ['uses' => 'UserController@addUser']);
-$router->put('user/update/{id}',  ['uses' => 'UserController@updateUser']);
+$router->get('user/all', ['uses' => 'UserController@getAllUsers']);
+$router->get('user/{id}', ['uses' => 'UserController@getUser']);
+$router->post('user/add', ['uses' => 'UserController@addUser']);
+$router->put('user/update/{id}', ['uses' => 'UserController@updateUser']);
 
-$router->get('daily-rewards/all',  ['uses' => 'DailyRewardController@getRewards']);
+$router->get('daily-rewards/all', ['uses' => 'DailyRewardController@getRewards']);
 // $router->get('daily-rewards/all',  ['uses' => 'DailyRewardController@getRewards']);
-$router->post('daily-rewards/add',  ['uses' => 'DailyRewardController@addDailyRewards']);
-// $router->put('daily-rewards/update',  ['uses' => 'DailyRewardController@getRewards']);
+$router->post('daily-rewards/add', ['uses' => 'DailyRewardController@addDailyRewards']);
+$router->put('daily-rewards/update/{id}', ['uses' => 'DailyRewardController@updateDailyRewards']);
 
-$router->post('transaction/add',  ['uses' => 'TransactionController@newTransaction']);
-
-
+$router->post('transaction/add', ['uses' => 'TransactionController@newTransaction']);

@@ -46,6 +46,26 @@ class DailyRewardController extends Controller
         $reward->save();
         return response()->json($reward);
     }
+    /**
+     * Update a daily reward entry
+     *
+     * @param  mixed $request
+     * @param  mixed $id
+     *
+     * @return void
+     */
+    public function updateDailyRewards(Request $request, $id)
+    {
+
+        $reward = DailyRewards::find($id);
+        // return response()->json($request);
+        $reward->starting_value = $request->input('starting_value');
+        $reward->current_value = $request->input('current_value');
+        $reward->save();
+
+        return response($reward, 200);
+
+    }
 
     //
 }
