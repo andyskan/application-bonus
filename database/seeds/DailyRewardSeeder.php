@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class DailyRewardSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,11 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(
+        DB::table('daily_rewards')->insert(
             [
-            UserSeeder::class,
-            DailyRewardSeeder::class
+            'starting_value'=>200000,
+            'current'=>200000
             ]
         );
+        // $this->call('UsersTableSeeder');
     }
 }

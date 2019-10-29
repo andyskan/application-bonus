@@ -13,12 +13,14 @@ class TableDailyReward extends Migration
     public function up()
     {
         //
-        Schema::create('daily_rewards', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('starting_value');
-            $table->integer('current');
-            $table->timestamps();
-        });
+        Schema::create(
+            'daily_rewards', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('starting_value');
+                $table->integer('current');
+                $table->timestamps();
+            }
+        );
     }
 
     /**

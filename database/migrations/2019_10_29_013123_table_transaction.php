@@ -14,17 +14,21 @@ class TableTransaction extends Migration
     public function up()
     {
         //
-        Schema::create('transaction', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('daily_reward_id')->unsigned();
-            $table->integer('reward_amount');
-            $table->timestamps();
-        });
-        Schema::table('transaction', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('daily_reward_id')->references('id')->on('daily_rewards');
-        });
+        Schema::create(
+            'transaction', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('user_id')->unsigned();
+                $table->integer('daily_reward_id')->unsigned();
+                $table->integer('reward_amount');
+                $table->timestamps();
+            }
+        );
+        Schema::table(
+            'transaction', function (Blueprint $table) {
+                $table->foreign('user_id')->references('id')->on('users');
+                $table->foreign('daily_reward_id')->references('id')->on('daily_rewards');
+            }
+        );
     }
 
     /**
