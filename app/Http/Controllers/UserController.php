@@ -29,7 +29,7 @@ class UserController extends Controller
     public function getAllUsers()
     {
         $data = BonusUser::all();
-        return response($data);
+        return response()->json($data);
     }
     /**
      * Get user by id

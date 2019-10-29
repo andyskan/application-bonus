@@ -58,7 +58,6 @@ class DailyRewardController extends Controller
     {
 
         $reward = DailyRewards::find($id);
-        // return response()->json($request);
         $reward->starting_value = $request->input('starting_value');
         $reward->current_value = $request->input('current_value');
         $reward->save();
