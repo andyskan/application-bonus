@@ -62,7 +62,7 @@ class DailyRewardController extends Controller
         $reward->current_value = $request->input('current_value');
         $reward->save();
 
-        return response($reward, 200);
+        return response()->json($reward);
 
     }
 

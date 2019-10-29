@@ -37,7 +37,6 @@ class DailyRewardsTest extends TestCase
     {
         $parameters = [
             'starting_value' => 20000,
-
         ];
         $this->post('daily-rewards/add', $parameters, []);
         $this->seeStatusCode(200);
@@ -45,6 +44,25 @@ class DailyRewardsTest extends TestCase
             [
                 'starting_value' => 20000,
                 'current_value' => 20000
+            ]
+        );
+    }
+    /**
+     * Test should be able to update daily rewards
+     *
+     * @return void
+     */
+    public function testShouldUpdateDailyRewards()
+    {
+        $parameters = [
+            'starting_value' => 20000,
+            'current_value' => 10000,
+        ];
+        $this->put('daily-rewards/update/2', $parameters, []);
+        $this->seeStatusCode(200);
+        $this->seeJson(
+            [
+                'current_value' => 10000
             ]
         );
     }
