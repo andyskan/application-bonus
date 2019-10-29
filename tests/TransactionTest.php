@@ -1,4 +1,8 @@
 <?php
+/**
+ * Class to do test for transaction operation, 
+ * consisting of whether creation of transaction is possible, one time only limit
+ */
 class TransactionTest extends TestCase
 {
     /**
@@ -17,7 +21,7 @@ class TransactionTest extends TestCase
         $this->seeJson(
             [
                 'daily_reward_id' => 1,
-                'user_id' => 1
+                'user_id' => 1,
             ]
         );
         $this->seeJsonStructure(
@@ -27,7 +31,7 @@ class TransactionTest extends TestCase
                 'daily_reward_id',
                 'reward_amount',
                 'created_at',
-                'updated_at'
+                'updated_at',
             ]
         );
     }
@@ -36,7 +40,7 @@ class TransactionTest extends TestCase
      *
      * @return void
      */
-    public function testUserCanOnlyReceiveRewardsOnce() 
+    public function testUserCanOnlyReceiveRewardsOnce()
     {
         $parameters = [
             'user_id' => 1,
@@ -46,9 +50,8 @@ class TransactionTest extends TestCase
         $this->seeStatusCode(200);
         $this->seeJsonStructure(
             [
-                'message'
+                'message',
             ]
         );
     }
 }
-?>

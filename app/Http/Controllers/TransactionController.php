@@ -41,9 +41,9 @@ class TransactionController extends Controller
      */
     public function newTransaction(Request $request)
     {
+        //assume that one daily rewards is created daily
         $transactionList = Transaction::where('user_id', $request->input('user_id'))
             ->where('daily_reward_id', $request->input('daily_reward_id'))->get();
-
         if (count($transactionList) > 0) {
             return response()->json(
                 [
