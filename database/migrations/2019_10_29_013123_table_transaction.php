@@ -25,8 +25,13 @@ class TableTransaction extends Migration
         );
         Schema::table(
             'transaction', function (Blueprint $table) {
-                $table->foreign('user_id')->references('id')->on('users');
-                $table->foreign('daily_reward_id')->references('id')->on('daily_rewards');
+                $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users');
+                    
+                $table->foreign('daily_reward_id')
+                    ->references('id')
+                    ->on('daily_rewards');
             }
         );
     }
