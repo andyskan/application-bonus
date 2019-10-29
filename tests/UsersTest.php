@@ -39,18 +39,18 @@ class UsersTest extends TestCase
         $this->seeStatusCode(200);
         $this->seeJsonStructure(
             [
-                    'id',
-                    'name',
-                    'low_range',
-                    'top_range',
-                    'created_at',
-                    'updated_at',
+                'id',
+                'name',
+                'low_range',
+                'top_range',
+                'created_at',
+                'updated_at',
 
             ]
         );
     }
     /**
-     * Test Should return the correct user
+     * Test Should return the correct user structure
      *
      * @return void
      */
@@ -59,19 +59,45 @@ class UsersTest extends TestCase
         $parameters = [
             'name' => 'Andy',
             'low_range' => 20000,
-            'top_range' => 30000
+            'top_range' => 30000,
         ];
         $this->post('user/add', $parameters, []);
-            $this->seeStatusCode(200);
-            $this->seeJsonStructure(
-                [
+        $this->seeStatusCode(200);
+        $this->seeJsonStructure(
+            [
                 'id',
                 'name',
                 'low_range',
                 'top_range',
                 'created_at',
                 'updated_at',
+            ]
+        )
+            ->seeJson(
+                [
+                    'name' => 'Andy',
                 ]
             );
+    }
+    /**
+     * Test should be able to update user
+     *
+     * @return void
+     */
+    public function testShouldUpdateUser()
+    {
+        $parameters = [
+            'name' => 'Andy Kan',
+            'low_range' => 20000,
+            'top_range' => 30000,
+        ];
+        $this->put('user/update/7', $parameters, []);
+        $this->seeStatusCode(200)
+            ->seeJson(
+                [
+                    'name' => 'Andy Kan',
+                ]
+            );
+
     }
 }

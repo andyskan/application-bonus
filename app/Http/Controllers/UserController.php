@@ -72,7 +72,7 @@ class UserController extends Controller
         $user->top_range = $request->input('top_range');
         $user->save();
 
-        return response("User edit succesfull!", 200);
+        return response()->json($user);
 
     }
 
